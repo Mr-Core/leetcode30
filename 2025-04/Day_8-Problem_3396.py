@@ -59,8 +59,10 @@ Hint 1
 The constraints are small. Try brute force.
 """
 
-# # Brute force testing
-#
+# --------------------
+# Brute force testing
+# --------------------
+
 # nums = [1, 2, 3, 4, 2, 3, 3, 5, 7]
 #
 # counter = 0
@@ -72,12 +74,17 @@ The constraints are small. Try brute force.
 # print(counter)
 
 
-# # Solution: Brute Force
-#
-# class Solution:
-#     def minimumOperations(self, nums: List[int]) -> int:
-#         counter = 0
-#         while len(set(nums)) != len(nums):
-#             nums = nums[3:]
-#             counter += 1
-#         return counter
+# ----------------------
+# Solution: Brute Force
+# ----------------------
+
+from typing import List  # Optional
+
+
+class Solution:
+    def minimumOperations(self, nums: List[int]) -> int:
+        counter = 0
+        while len(set(nums)) != len(nums):
+            nums = nums[3:]
+            counter += 1
+        return counter

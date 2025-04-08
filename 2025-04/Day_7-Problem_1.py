@@ -42,8 +42,10 @@ Hint 3
 The second train of thought is, without changing the array, can we use additional space somehow? Like maybe a hash map to speed up the search?
 """
 
-# # Brute force testing
-#
+# --------------------
+# Brute force testing
+# --------------------
+
 # class Solution:
 #     def twoSum(self, nums: List[int], target: int) -> List[int]:
 #         for i in range(len(nums)):
@@ -63,8 +65,10 @@ The second train of thought is, without changing the array, can we use additiona
 #     main()
 
 
-# # 1st solution: Brute Force (works, but slow)
-#
+# --------------------------------------------
+# 1st solution: Brute Force (works, but slow)
+# --------------------------------------------
+
 # class Solution:
 #     def twoSum(self, nums: List[int], target: int) -> List[int]:
 #         for i in range(len(nums)):
@@ -73,11 +77,10 @@ The second train of thought is, without changing the array, can we use additiona
 #                     return [i, j]
 
 
-####
+# -----------------
+# Hash Map testing
+# -----------------
 
-
-# # Hash Map testing
-#
 # nums = [2, 7, 11, 15]
 # target = 9
 #
@@ -91,13 +94,18 @@ The second train of thought is, without changing the array, can we use additiona
 #     seen[num] = i
 
 
-# # 2nd FINAL solution: Hash Map
-#
-# class Solution:
-#     def twoSum(self, nums: List[int], target: int) -> List[int]:
-#         seen = {}
-#         for i, num in enumerate(nums):
-#             complement = target - num
-#             if complement in seen:
-#                 return [seen[complement], i]
-#             seen[num] = i
+# -------------------------------------------
+# 2nd solution: Hash Map (faster and better)
+# -------------------------------------------
+
+from typing import List  # Optional
+
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        seen = {}
+        for i, num in enumerate(nums):
+            complement = target - num
+            if complement in seen:
+                return [seen[complement], i]
+            seen[num] = i
