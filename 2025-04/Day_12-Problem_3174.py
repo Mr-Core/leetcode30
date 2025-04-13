@@ -65,14 +65,15 @@ Delete all digits and all marked characters.
 # ---------------
 
 
-# def clearDigits(s: str) -> str:
-#     stack = []
-#
-#     for char in s:
-#         if char.isdigit():
-#             if stack:
-#                 stack.pop()  # remove the nearest non-digit to the left
-#         else:
-#             stack.append(char)  # add letter to the stack
-#
-#     return "".join(stack)
+class Solution:
+    def clearDigits(self, s: str) -> str:
+        stack = []
+
+        for char in s:
+            if char.isdigit():
+                if stack:
+                    stack.pop()
+            else:
+                stack.append(char)
+
+        return "".join(stack)

@@ -79,38 +79,41 @@ Convert each number to a string and compare the sum of the first half with that 
 # 1st solution: from 1st draft
 # -----------------------------
 
-# counter = 0
-#
-# for n in range(low, high + 1):
-#     n_string = str(n)
-#
-#     if (len(n_string) % 2) != 0:
-#         pass
-#
-#     else:
-#         first_part = n_string[: len(n_string) // 2]
-#         second_part = n_string[len(n_string) // 2 :]
-#
-#         if (len(first_part) % 2) == 0:
-#             first_sum_one = first_part[: len(first_part) // 2]
-#             first_sum_two = first_part[len(first_part) // 2 :]
-#
-#             first_sum_final = int(first_sum_one) + int(first_sum_two)
-#         else:
-#             first_sum_final = first_part
-#
-#         if (len(second_part) % 2) == 0:
-#             second_sum_one = second_part[: len(second_part) // 2]
-#             second_sum_two = second_part[len(second_part) // 2 :]
-#
-#             second_sum_final = int(second_sum_one) + int(second_sum_two)
-#         else:
-#             second_sum_final = second_part
-#
-#         if first_sum_final == second_sum_final:
-#             counter += 1
-#
-# return counter
+
+class Solution:
+    def countSymmetricIntegers(self, low: int, high: int) -> int:
+        counter = 0
+
+        for n in range(low, high + 1):
+            n_string = str(n)
+
+            if (len(n_string) % 2) != 0:
+                pass
+
+            else:
+                first_part = n_string[: len(n_string) // 2]
+                second_part = n_string[len(n_string) // 2 :]
+
+                if (len(first_part) % 2) == 0:
+                    first_sum_one = first_part[: len(first_part) // 2]
+                    first_sum_two = first_part[len(first_part) // 2 :]
+
+                    first_sum_final = int(first_sum_one) + int(first_sum_two)
+                else:
+                    first_sum_final = first_part
+
+                if (len(second_part) % 2) == 0:
+                    second_sum_one = second_part[: len(second_part) // 2]
+                    second_sum_two = second_part[len(second_part) // 2 :]
+
+                    second_sum_final = int(second_sum_one) + int(second_sum_two)
+                else:
+                    second_sum_final = second_part
+
+                if first_sum_final == second_sum_final:
+                    counter += 1
+
+        return counter
 
 
 # -------------------------------------------
@@ -143,29 +146,32 @@ Convert each number to a string and compare the sum of the first half with that 
 # print(f"There are {counter} symmetric integers between {low} and {high}: {results}")
 
 
-# -----------------------------
-# 2nd solution: from 2nd draft
-# -----------------------------
+# -----------------------------------------------------
+# 2nd solution: from 2nd draft (optimized, but slower)
+# -----------------------------------------------------
 
-# counter = 0
+
+# class Solution:
+#     def countSymmetricIntegers(self, low: int, high: int) -> int:
+#         counter = 0
 #
-# for n in range(low, high + 1):
-#     s = str(n)
+#         for n in range(low, high + 1):
+#             s = str(n)
 #
-#     if len(s) % 2 != 0:
-#         continue
+#             if len(s) % 2 != 0:
+#                 continue
 #
-#     half = len(s) // 2
-#     left = s[:half]
-#     right = s[half:]
+#             half = len(s) // 2
+#             left = s[:half]
+#             right = s[half:]
 #
-#     left_sum = sum(int(digit) for digit in left)
-#     right_sum = sum(int(digit) for digit in right)
+#             left_sum = sum(int(digit) for digit in left)
+#             right_sum = sum(int(digit) for digit in right)
 #
-#     if left_sum == right_sum:
-#         counter += 1
+#             if left_sum == right_sum:
+#                 counter += 1
 #
-# return counter
+#         return counter
 
 
 # Interesting note:
