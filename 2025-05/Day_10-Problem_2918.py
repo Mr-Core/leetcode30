@@ -64,9 +64,33 @@ Otherwise, how can you update the value of exactly one of these 1s to make the s
 # print(minSum(nums1, nums2))
 
 
-# ---------------------------------------
-# Solution (848ms runtime, beats 64.99%)
-# ---------------------------------------
+# --------------------------------------------------
+# Solution 1: with *1 (848ms runtime, beats 64.99%)
+# --------------------------------------------------
+
+# from typing import List  # Optional
+#
+#
+# class Solution:
+#     def minSum(self, nums1: List[int], nums2: List[int]) -> int:
+#         sum1 = sum(nums1)
+#         sum2 = sum(nums2)
+#
+#         z1 = nums1.count(0)
+#         z2 = nums2.count(0)
+#
+#         min_sum1 = sum1 + z1 * 1
+#         min_sum2 = sum2 + z2 * 1
+#
+#         if (min_sum1 < min_sum2 and z1 == 0) or (min_sum2 < min_sum1 and z2 == 0):
+#             return -1
+#
+#         return max(min_sum1, min_sum2)
+
+
+# -----------------------------------------------------
+# Solution 2: without *1 (835ms runtime, beats 84.42%)
+# -----------------------------------------------------
 
 from typing import List  # Optional
 
@@ -79,8 +103,8 @@ class Solution:
         z1 = nums1.count(0)
         z2 = nums2.count(0)
 
-        min_sum1 = sum1 + z1 * 1
-        min_sum2 = sum2 + z2 * 1
+        min_sum1 = sum1 + z1
+        min_sum2 = sum2 + z2
 
         if (min_sum1 < min_sum2 and z1 == 0) or (min_sum2 < min_sum1 and z2 == 0):
             return -1
