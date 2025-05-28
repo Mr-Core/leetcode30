@@ -70,7 +70,7 @@ Simply count the number of unique edge lengths after checking it’s a valid tri
 from typing import List  # Optional
 
 
-class Solution:
+class Solution:  # type: ignore
     def triangleType(self, nums: List[int]) -> str:
         if (
             nums[0] + nums[1] > nums[2]
